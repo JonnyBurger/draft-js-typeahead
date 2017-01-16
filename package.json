@@ -1,6 +1,6 @@
 {
-  "name": "draft-js-typeahead",
-  "version": "0.1.0",
+  "name": "@jonny/draft-js-typeahead",
+  "version": "0.1.8",
   "description": "Typeaheads for Draft.js inspired by Facebook.com",
   "keywords": [
     "react",

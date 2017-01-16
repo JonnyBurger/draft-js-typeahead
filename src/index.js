@@ -1,6 +1,25 @@
 import React from 'react';
 import { Editor, EditorState } from 'draft-js';
 
+let globalClipboard = null;
+
+class ClipboardHelper {
+  static set(clipboard) {
+    globalClipboard = clipboard;
+  }
+  static get(clipboard) {
+    return globalClipboard;
+  }
+}
+
+class SharedClipboardEditor extends Editor {
+  constructor(props) {
+    super(props);
+    this.setClipboard = clipboard => ClipboardHelper.set(clipboard);
+    this.getClipboard = () => ClipboardHelper.get();
+  }
+};
+
 function normalizeSelectedIndex(selectedIndex, max) {
   let index = selectedIndex % max;
   if (index < 0) {
@@ -9,7 +28,7 @@ function normalizeSelectedIndex(selectedIndex, max) {
   return index;
 }
 
-class TypeaheadEditor extends Editor {
+class TypeaheadEditor extends SharedClipboardEditor {
   constructor(props) {
     super(props);
     this.typeaheadState = null;
@@ -45,7 +64,7 @@ class TypeaheadEditor extends Editor {
     text = text.substring(0, range.startOffset);
 
     // ..and before the typeahead token.
-    const index = text.lastIndexOf('@');
+    const index = text.lastIndexOf(this.props.token || '@');
     if (index === -1) {
       return null;
     }
@@ -167,7 +186,7 @@ class TypeaheadEditor extends Editor {
     } = this.props;
 
     return (
-      <Editor
+      <SharedClipboardEditor
         {...other}
         onChange={this.onChange}
         onEscape={this.onEscape}
