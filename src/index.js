@@ -65,6 +65,12 @@ class TypeaheadEditor extends SharedClipboardEditor {
 
     // ..and before the typeahead token.
     const index = text.lastIndexOf(this.props.token || '@');
+    if (this.props.endToken) {
+      const endIndex = text.lastIndexOf(this.props.endToken);
+      if (endIndex > index) {
+        return null;
+      }
+    }
     if (index === -1) {
       return null;
     }
