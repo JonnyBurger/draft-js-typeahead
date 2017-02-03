@@ -134,10 +134,7 @@ class TypeaheadEditor extends SharedClipboardEditor {
   };
 
   onEscape = (e) => {
-    if (!this.getTypeaheadState(false)) {
-      this.props.onEscape && this.props.onEscape(e);
-      return;
-    }
+    this.props.onEscape && this.props.onEscape(e);
 
     e.preventDefault();
     this.typeaheadState = null;
