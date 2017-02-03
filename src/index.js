@@ -28,6 +28,18 @@ function normalizeSelectedIndex(selectedIndex, max) {
   return index;
 }
 
+function lastIndexNotEscaped(text, search, escapeCharacter) {
+  const index = text.lastIndexOf(search);
+  if (index === -1) {
+    return -1;
+  }
+  const indexOfEscaped = text.lastIndexOf(search + escapeCharacter);
+  if (indexOfEscaped === index) {
+    return -1;
+  }
+  return index;
+}
+
 class TypeaheadEditor extends SharedClipboardEditor {
   constructor(props) {
     super(props);
@@ -64,9 +76,9 @@ class TypeaheadEditor extends SharedClipboardEditor {
     text = text.substring(0, range.startOffset);
 
     // ..and before the typeahead token.
-    const index = text.lastIndexOf(this.props.token || '@');
+    const index = lastIndexNotEscaped(text, this.props.token || '@', this.props.escapeToken || '​');
     if (this.props.endToken) {
-      const endIndex = text.lastIndexOf(this.props.endToken);
+      const endIndex = lastIndexNotEscaped(text, this.props.endToken, this.props.esacapeToken || '​');
       if (endIndex > index) {
         return null;
       }
