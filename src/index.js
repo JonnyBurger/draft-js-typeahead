@@ -1,6 +1,5 @@
 import React from 'react';
-import Editor from 'draft-js-plugins-editor';
-import { EditorState } from 'draft-js';
+import { EditorState, Editor } from 'draft-js';
 
 let globalClipboard = null;
 
