@@ -151,10 +151,12 @@ class TypeaheadEditor extends SharedClipboardEditor {
     }
 
     e.preventDefault();
-    typeaheadState.selectedIndex += nudgeAmount;
-    this.typeaheadState = typeaheadState;
+    let newTypeaheadState = Object.assign({}, typeaheadState, {
+      selectedIndex: typeaheadState.selectedIndex += nudgeAmount
+    });
+    this.typeaheadState = newTypeaheadState;
 
-    this.props.onTypeaheadChange && this.props.onTypeaheadChange(typeaheadState);
+    this.props.onTypeaheadChange && this.props.onTypeaheadChange(newTypeaheadState);
   }
 
   onUpArrow = (e) => {
