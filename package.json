@@ -1,5 +1,5 @@
 {
-  "name": "draft-js-typeahead",
+  "name": "@jonny/raft-js-typeahead",
   "version": "0.1.1",
   "description": "Typeaheads for Draft.js inspired by Facebook.com",
   "keywords": [
@@ -39,7 +39,7 @@
     "webpack-stream": "^3.1.0"
   },
   "dependencies": {
-    "draft-js": "^0.8.1",
+    "@jonny/draft-js": "^0.8.1",
     "immutable": "^3.7.6",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"

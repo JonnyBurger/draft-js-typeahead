@@ -1,5 +1,5 @@
 import React from 'react';
-import { Editor, EditorState } from 'draft-js';
+import { Editor, EditorState } from '@jonny/draft-js';
 
 function normalizeSelectedIndex(selectedIndex, max) {
   let index = selectedIndex % max;
