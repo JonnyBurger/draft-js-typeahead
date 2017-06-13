@@ -1,6 +1,6 @@
 {
   "name": "@jonny/draft-js-typeahead",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "Typeaheads for Draft.js inspired by Facebook.com",
   "keywords": [
     "react",
@@ -38,10 +38,10 @@
     "run-sequence": "^1.1.5",
     "webpack-stream": "^3.1.0"
   },
-"peerDependencies": {
-   "react": "^15.5.0",
-   "react-dom": "^15.5.0"
-},
+  "peerDependencies": {
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0"
+  },
   "dependencies": {
     "@jonny/draft-js": "^0.8.1",
     "immutable": "^3.7.6"
