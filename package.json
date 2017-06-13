@@ -1,5 +1,5 @@
 {
-  "name": "@jonny/raft-js-typeahead",
+  "name": "@jonny/draft-js-typeahead",
   "version": "0.2.0",
   "description": "Typeaheads for Draft.js inspired by Facebook.com",
   "keywords": [
