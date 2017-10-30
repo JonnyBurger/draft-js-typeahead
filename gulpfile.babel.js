@@ -9,7 +9,7 @@ const buildDist = (opts) => {
     debug: opts.debug,
     externals: {
       React: 'React',
-      '@jonny/draft-js': 'Draft'
+      'draft-js': 'Draft'
     },
     output: {
       filename: opts.output,
